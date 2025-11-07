@@ -419,3 +419,90 @@ position: absolute;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* 全屏背景图 */
+.hero-center {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* 删掉原有的 background 相关声明 */
+}
+
+/* 头像容器 */
+.avatar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* 男生头像区域（左） */
+.avatar-item.left {
+  margin-right: 40px;
+}
+
+/* 女生头像区域（右） */
+.avatar-item.right {
+  margin-left: 40px;
+}
+
+/* 头像样式 */
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 头像名字 */
+.avatar-name {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 中间爱心 */
+.heart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.heart-center i {
+  font-size: 36px;
+  color: #ff5162;
+  animation: heartbeat 1.5s infinite;
+}
+
+/* 滚动提示 */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* 平滑滚动（延续Butterfly风格） */
+html {
+  scroll-behavior: smooth;
+}
