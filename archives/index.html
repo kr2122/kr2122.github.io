@@ -1,169 +1,210 @@
-<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Archives | -Pollux's blog</title><meta name="author" content="-Pollux"><meta name="copyright" content="-Pollux"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
-<meta property="og:title" content="Archives">
-<meta property="og:url" content="http://example.com/archives/index.html">
-<meta property="og:site_name" content="-Pollux&#39;s blog">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/butterfly.jpg">
-<meta property="article:author" content="-Pollux">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/butterfly.jpg"><link rel="shortcut icon" href="/img/butterfly.jpg"><link rel="canonical" href="http://example.com/archives/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
+<head>
+    <head>
+    <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
+    <meta charset="UTF-8">
+    
+    <title>archive_a - -Pollux&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-      const theme = saveToLocal.get('theme')
+<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+/>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+</head>
+
+<body>
     
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: 'Copy Successful',
-    error: 'Copy Failed',
-    noSupport: 'Browser Not Supported'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just now',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: 'Load More'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Archives',
-  isPost: false,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: false,
-  isShuoshuo: false
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">-Pollux's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Archives</h1></div></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">All Articles - 3</div><div class="article-sort"><div class="article-sort-item year">2024</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-12-20T15:59:57.000Z" title="Created 2024-12-20 23:59:57">2024-12-20</time></div><a class="article-sort-item-title" href="/post/35680.html" title="计网概述">计网概述</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-18T15:43:12.000Z" title="Created 2024-11-18 23:43:12">2024-11-18</time></div><a class="article-sort-item-title" href="/post/60332.html" title="故障诊断与预测论文概述">故障诊断与预测论文概述</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2024-11-16T10:31:17.706Z" title="Created 2024-11-16 18:31:17">2024-11-16</time></div><a class="article-sort-item-title" href="/post/16107.html" title="Hello World">Hello World</a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">-Pollux</div><div class="author-info-description">大二计算机牛马一枚，随便写写.....</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kr2122/kr2122.github.io.git"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/35680.html" title="计网概述">计网概述</a><time datetime="2024-12-20T15:59:57.000Z" title="Created 2024-12-20 23:59:57">2024-12-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/60332.html" title="故障诊断与预测论文概述">故障诊断与预测论文概述</a><time datetime="2024-11-18T15:43:12.000Z" title="Created 2024-11-18 23:43:12">2024-11-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/16107.html" title="Hello World">Hello World</a><time datetime="2024-11-16T10:31:17.706Z" title="Created 2024-11-16 18:31:17">2024-11-16</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.15em; color: rgb(50, 172, 135);">论文阅读</a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.15em; color: rgb(84, 194, 80);">计算机网络</a><a href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" style="font-size: 1.15em; color: rgb(50, 63, 179);">期末复习</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>Archives</span>
-      
-    </div>
-    <ul class="card-archive-list">
-  
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/12/">
-          <span class="card-archive-list-date">December 2024</span>
-          <span class="card-archive-list-count">1</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/11/">
-          <span class="card-archive-list-date">November 2024</span>
-          <span class="card-archive-list-count">2</span>
-        </a>
-      </li>
-    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-12-29T06:57:28.632Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By -Pollux</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="Toggle Between Traditional and Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-POWERMODE.mobile = false;
-document.body.addEventListener('input', POWERMODE);
-</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+
+        <div>
+            <div class="container-fluid position-relative">
+                <nav class="navbar navbar-expand-lg navbar-dark  text-white bg-transparent">
+                    <div class="container">
+                        
+                        <a class="navbar-brand" href="/">💖那年初夏💖</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarText">
+                            <ul class="navbar-nav mr-auto">
+                            </ul>
+                            <span class="navbar-text">
+                                💕愿你三冬暖，愿你天不寒🍂
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+                <section class="lover-background"
+                    style="background-image: url(/img/banner.jpg)">
+                </section>
+                <section
+                    class="container lover-container d-flex flex-column align-content-center justify-content-center">
+                    <div class="row align-items-center pb-5 lover">
+                        <div class="col">
+                            <div class="d-flex flex-column">
+                                <img class="mx-auto avatar-img rounded-circle"
+                                    src="/img/boyavatar.jpg" alt="">
+                                <h4 class="mx-auto text-white pt-2">  
+                                    柯佳润
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex justify-content-center">
+                                <div class="heart"></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex flex-column">
+                                <img class="mx-auto avatar-img rounded-circle"
+                                    src="/img/girlavatar.jpg" alt="">
+                                <h4 class="mx-auto text-white pt-2">
+                                    谭嘉慧
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="main-hero-waves-area waves-area">
+                    <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                        <defs>
+                            <path id="gentle-wave"
+                                d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z">
+                            </path>
+                        </defs>
+                        <g class="parallax">
+                            <use xlink:href="#gentle-wave" x="48" y="0"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="3"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="5"></use>
+                            <use xlink:href="#gentle-wave" x="48" y="7"></use>
+                        </g>
+                    </svg>
+                </section>
+            </div>
+
+            <div id="Pjax">
+  <div class="container">
+      <blockquote class="blockquote text-center my-5 py-2">
+          <h5 class="card-title lover-card-title">我们风雨同舟已经一起走过</h5>
+          <h5 id="site_runtime">
+              
+          </h5>
+      </blockquote>
+      <div class="row indexPlate">
+          <div class="col-md-4">
+              <a href="/blessings/" class="card">
+                  <div class="card-body">
+                      <div class="row align-items-center">
+                          <div class="col-auto">
+                              <div class="avatar avatar-md">
+                                  <img src="/img/blessings.jpg" alt="..."
+                                      class="avatar-img rounded-circle">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <p class="h5">祝福板</p>
+                              <p class="small text-muted mb-1">💌写下对我们的祝福</p>
+                          </div>
+                      </div>
+                  </div>
+                </a>
+          </div>
+          <div class="col-md-4">
+              <a href="/records/" class="card">
+                  <div class="card-body">
+                      <div class="row align-items-center">
+                          <div class="col-auto">
+                              <div class="avatar avatar-md">
+                                  <img src="/img/records.jpg" alt="..."
+                                      class="avatar-img rounded-circle">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <p class="h5">点点滴滴</p>
+                              <p class="small text-muted mb-1">💖记录你我生活</p>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-4">
+            <a href="/lovelist/" class="card">
+                  <div class="card-body">
+                      <div class="row align-items-center">
+                          <div class="col-auto">
+                              <div class="avatar avatar-md">
+                                  <img src="/img/lovelist.jpg" alt="..."
+                                      class="avatar-img rounded-circle">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <p class="h5">Love List</p>
+                              <p class="small text-muted mb-1">📜甜蜜瞬间有你陪伴</p>
+                          </div>
+                      </div>
+                  </div>
+                </a>
+          </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+      <script>
+          window.showSiteRuntime = function () {
+              site_runtime = $("#site_runtime");
+              if (!site_runtime) {
+                  return;
+              }
+              window.setTimeout("showSiteRuntime()", 1000);
+              start = new Date("Thu Jul 27 2017 08:00:00 GMT+0800 (中国标准时间)");
+              now = new Date();
+              T = (now.getTime() - start.getTime());
+              i = 24 * 60 * 60 * 1000;
+              d = T / i;
+              D = Math.floor(d);
+              h = (d - D) * 24;
+              H = Math.floor(h);
+              m = (h - H) * 60;
+              M = Math.floor(m);
+              s = (m - M) * 60
+              S = Math.floor(s);
+              site_runtime.html("<span class=\"bigfontNum\">" + D + "</span> 天 <span class=\"bigfontNum\">" + H + "</span> 小时 <span class=\"bigfontNum\">" + M + "</span> 分钟 <span class=\"bigfontNum\">" + S + "</span> 秒");
+          };
+          showSiteRuntime();
+          $(document).pjax('a', '#Pjax', {
+              fragment: '#Pjax',
+              timeout: 6000
+          });
+          $(document).on('pjax:send', function () {
+              NProgress.start();
+          });
+          $(document).on('pjax:complete', function () {
+              NProgress.done();
+          });
+      </script>
+  </div>
+
+
+
+        </div>
+
+
+        <div class="p-5 text-center ">
+  <p class="h6"> Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> ※ Theme is <a
+          href="https://github.com/beimengyeyu/hexo-theme-brave" target="_blank">Brave</a></p>
+</div>
+</body>
+
+</html>
