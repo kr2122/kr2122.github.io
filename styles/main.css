@@ -377,3 +377,45 @@ position: absolute;
 0%   { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
+
+
+
+
+/* ================================== */
+/* 卡片透明 + 鼠标滑动动效（新增代码） */
+/* ================================== */
+/* 1. 首页卡片（祝福板、点点滴滴、Love List）透明效果 */
+.indexPlate .card {
+  /* 白色半透明：最后一个值0.7是透明度（0=全透，1=不透，可改） */
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: none !important; /* 去掉卡片默认边框（更简洁） */
+  border-radius: 12px !important; /* 卡片圆角（更柔和） */
+  transition: all 0.4s ease; /* 动效过渡时间（0.4秒，顺滑不生硬） */
+  backdrop-filter: blur(5px); /* 毛玻璃效果（可选，高级感拉满） */
+}
+
+/* 2. 鼠标滑过卡片的动效 */
+.indexPlate .card:hover {
+  transform: translateY(-8px); /* 向上浮动8px（距离可改，比如-5px） */
+  box-shadow: 0 15px 30px rgba(255, 100, 130, 0.2); /* 粉色阴影（更立体） */
+  background-color: rgba(255, 255, 255, 0.9) !important; /* 滑过时更不透明（清晰） */
+}
+
+/* 3. Love List页面的愿望卡片（如果需要也透明） */
+#loveList .card, .list-content .card {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+#loveList .card:hover, .list-content .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. 确保卡片内文字清晰（避免透明背景导致看不清） */
+.card .h5, .card .text-muted, .card p {
+  color: #2d3142 !important; /* 深灰色文字（对比度高，清晰） */
+}
+
+
